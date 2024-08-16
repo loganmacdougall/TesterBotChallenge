@@ -24,9 +24,10 @@ app.get('/', (req, res) => {
 })
 
 io.on('connection', (socket) => {
+  const color = Array.from(Array(3)).reduce((acc, _) => acc + Math.floor(255 - Math.random()*128).toString(16), "#")
   socket.on('chat-send', (msg) => {
     socket.emit('chat-recv', `<span style='color:white'>${msg}</span>`)
-    socket.broadcast.emit('chat-recv', `<span style='color:#ff9999'>${msg}</span>`)
+    socket.broadcast.emit('chat-recv', `<span style='color:${color}'>${msg}</span>`)
   })
 
   socket.on('run-test-bot', () => {
