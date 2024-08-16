@@ -124,17 +124,26 @@ header {
 }
 
 @media screen and (max-width: 1000px) {
+  header h1 {
+    font-size: 18px;
+  }
+
+  header p {
+    font-size: 14px;
+  }
+
   #content {
     flex-direction: column;
   }
 
   #chat {
-    height: 100%;
+    height: calc(100% - 120px);
+    overflow-y: scroll;
   }
 
   #test-button-container {
     width: 100%;
-    height: unset;
+    height: 120px;
     max-width: unset;
     margin: 1em 0;
     text-align: center;
